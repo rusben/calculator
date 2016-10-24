@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /**
  * "index" index view controller
  *
@@ -24,7 +23,7 @@ var indexController = {
  	 * @return: {none}
 	 */
 	swapInputs: function () {
-		$("#decimal-block").swapWith("#binary-block");
+ 		return false;
 	},
 	/**
 	 * @name: convert
@@ -35,39 +34,28 @@ var indexController = {
  	 * @return: {none}
 	 */
 	convert: function () {
- 		return false;
+		if(this.operation.val()=="decimal2binary"&& parser.isDigit()==true)
+			{
+				converter.decimal2binary();
+			}
+			else
+			{
+				$("#decimal").addclass("invalid");
+			}
+		else if (this.operation.val()=="binary2decimal"&& parser.isBit()==true)
+		{
+			{
+				converter.binary2decimal();
+			}
+			else
+			{
+				$("#bin").addclass("invalid");
+			}
+		}
+		else
+		{
+			$("#decimal").addclass("valid");
+			$("#bin").addclass("valid");
+		}
 	},
-};
-
-$(document).ready(function()
-{
-$("#swap").click(indexController.swapInputs());
-});
-jQuery.fn.swapWith = function(to) {
-    return this.each(function() {
-        var copy_to = $(to).clone(true);
-        var copy_from = $(this).clone(true);
-        $(to).replaceWith(copy_from);
-        $(this).replaceWith(copy_to);
-    });
-};
-=======
-$(document).ready(function (){
-
-		$("#swap").click(function() { 
-			$("div").hide();
-			//$("binary-block").show();
-			//$("decimal-block").show();
-			
-			
-			
-		});
-		
-		$("#convert").click(function() { 
-			
-			
-			
-		});
-		
-});
->>>>>>> 97d048a6cee38b825cc6617e85ce8aeddf7f161f
+}

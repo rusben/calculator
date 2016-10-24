@@ -7,7 +7,7 @@
  * @description: checks inputs searching for patterns
  * @params {none}
  * @return: none
- */	
+ */
 var parser = {
 	version: "0.0.1",
 	version: function () {
@@ -20,7 +20,25 @@ var parser = {
  	 * @return: true if number is between 0-9, false otherwise
 	 */
 	isDigit: function (number) {
- 		return false;
+<<<<<<< HEAD
+		if (isNaN(number)) return false;
+		else {
+			
+		}
+
+
+
+		return false;
+=======
+		if(isNaN(number))
+		{
+				return false;
+		}
+		else {
+				return true;
+		}
+
+>>>>>>> 97d048a6cee38b825cc6617e85ce8aeddf7f161f
 	},
 	/**
 	 * @name: isBit
@@ -29,6 +47,11 @@ var parser = {
  	 * @return: true if number is 0 or 1, false otherwise
 	 */
 	isBit: function (number) {
- 		return false;
+ 		for(var i = 0; i < strlen(number);i++){
+			if(number[i] != 0 && number[i] != 1){
+				return false;
+			}
+		}
+ 		return true;
 	},
 }

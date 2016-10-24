@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /**
  * "index" index view controller
  *
@@ -24,7 +23,7 @@ var indexController = {
  	 * @return: {none}
 	 */
 	swapInputs: function () {
-		$("#decimal-block").swapWith("#binary-block");
+ 		return false;
 	},
 	/**
 	 * @name: convert
@@ -35,39 +34,13 @@ var indexController = {
  	 * @return: {none}
 	 */
 	convert: function () {
- 		return false;
+		if(this.operation().val()=="decimal2binary")
+		{
+			converter.decimal2binary();
+		}
+		else
+		{
+			converter.binary2decimal();
+		}
 	},
-};
-
-$(document).ready(function()
-{
-$("#swap").click(indexController.swapInputs());
-});
-jQuery.fn.swapWith = function(to) {
-    return this.each(function() {
-        var copy_to = $(to).clone(true);
-        var copy_from = $(this).clone(true);
-        $(to).replaceWith(copy_from);
-        $(this).replaceWith(copy_to);
-    });
-};
-=======
-$(document).ready(function (){
-
-		$("#swap").click(function() { 
-			$("div").hide();
-			//$("binary-block").show();
-			//$("decimal-block").show();
-			
-			
-			
-		});
-		
-		$("#convert").click(function() { 
-			
-			
-			
-		});
-		
-});
->>>>>>> 97d048a6cee38b825cc6617e85ce8aeddf7f161f
+}
