@@ -34,13 +34,28 @@ var indexController = {
  	 * @return: {none}
 	 */
 	convert: function () {
-		if(this.operation().val()=="decimal2binary")
+		if(this.operation.val()=="decimal2binary"&& parser.isDigit()==true)
+			{
+				converter.decimal2binary();
+			}
+			else
+			{
+				$("#decimal").addclass("invalid");
+			}
+		else if (this.operation.val()=="binary2decimal"&& parser.isBit()==true)
 		{
-			converter.decimal2binary();
+			{
+				converter.binary2decimal();
+			}
+			else
+			{
+				$("#bin").addclass("invalid");
+			}
 		}
 		else
 		{
-			converter.binary2decimal();
+			$("#decimal").addclass("valid");
+			$("#bin").addclass("valid");
 		}
 	},
 }
